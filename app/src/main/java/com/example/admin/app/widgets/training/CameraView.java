@@ -44,14 +44,14 @@ public class CameraView extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        canvas.save();
-        
         Camera camera = new Camera();
+        canvas.save();
+
         camera.save();
         camera.rotateX(45);
-        canvas.translate(100, 0);
+        canvas.translate(200, 0);
         camera.applyToCanvas(canvas);
-        canvas.translate(-100, 0);
+        canvas.translate(-200, 0);
         camera.restore();
 
         canvas.drawBitmap(mBitmap, 0, 0, mPaint);
