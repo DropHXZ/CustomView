@@ -4,11 +4,16 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import com.example.admin.app.R
 import kotlinx.android.synthetic.main.activity_progress.*
+import android.animation.ValueAnimator
+import android.util.Log
+
 
 /**
  * Created by admin on 2017/11/13.
  */
 class ProgressAct : AppCompatActivity() {
+
+    var str: String = "kotlin"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -19,7 +24,12 @@ class ProgressAct : AppCompatActivity() {
 
     private fun initClick() {
         btn_01.setOnClickListener {
-
+            val valueAnimator = ValueAnimator.ofInt(0, 100)
+            valueAnimator.addUpdateListener {
+                animation -> Log.i("custom",valueAnimator.getAnimatedValue().toString())
+            }
+            valueAnimator.duration = 3000
+            valueAnimator.start()
         }
         btn_02.setOnClickListener {
 

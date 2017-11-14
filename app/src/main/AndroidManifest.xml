@@ -17,6 +17,7 @@
             </intent-filter>
         </activity>
         <activity android:name="com.example.admin.app.ui.CusViewAct" />
+        <activity android:name="com.example.admin.app.ui.ProgressAct" />
     </application>
 
 </manifest>
