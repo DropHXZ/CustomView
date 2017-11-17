@@ -4,6 +4,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <com.example.admin.app.widgets.training.ProgressArcView
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:id="@+id/progress_arc"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
+
     <Button
         android:id="@+id/btn_01"
         android:layout_width="wrap_content"

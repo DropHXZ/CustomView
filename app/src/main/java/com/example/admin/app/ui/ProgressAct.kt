@@ -24,12 +24,7 @@ class ProgressAct : AppCompatActivity() {
 
     private fun initClick() {
         btn_01.setOnClickListener {
-            val valueAnimator = ValueAnimator.ofInt(0, 100)
-            valueAnimator.addUpdateListener {
-                animation -> Log.i("custom",valueAnimator.getAnimatedValue().toString())
-            }
-            valueAnimator.duration = 3000
-            valueAnimator.start()
+            progress_arc.onClick(50f)
         }
         btn_02.setOnClickListener {
 

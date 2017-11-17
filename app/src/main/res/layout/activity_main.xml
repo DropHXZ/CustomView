@@ -23,4 +23,12 @@
         android:text="进度条"
         app:layout_constraintTop_toTopOf="@+id/btn_01" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@id/btn_03"
+        app:layout_constraintTop_toTopOf="@+id/btn_01"
+        app:layout_constraintLeft_toRightOf="@+id/btn_01"
+        android:text="平移动画"/>
+
 </android.support.constraint.ConstraintLayout>

@@ -24,6 +24,10 @@ class MainActivity : AppCompatActivity() {
             val inn = Intent(this, ProgressAct::class.java)
             startActivity(inn)
         }
+        btn_03.setOnClickListener {
+            val inn = Intent(this,TranslationAct::class.java)
+            startActivity(inn)
+        }
 
     }
 }
