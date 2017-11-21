@@ -1,6 +1,7 @@
 package com.example.admin.app.widgets.training;
 
 import android.animation.ObjectAnimator;
+import android.animation.TimeInterpolator;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -9,6 +10,10 @@ import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.AccelerateDecelerateInterpolator;
+import android.view.animation.AnticipateOvershootInterpolator;
+import android.view.animation.DecelerateInterpolator;
+import android.view.animation.LinearInterpolator;
 
 /**
  * 进度条
@@ -63,6 +68,7 @@ public class ProgressArcView extends View {
         animator = ObjectAnimator.ofFloat(this,"raseup",150,arc*240/100);
 //        animator.setRepeatCount(ValueAnimator.INFINITE);
 //        animator.setRepeatMode(ValueAnimator.RESTART);
+        animator.setInterpolator(new LinearInterpolator());
         animator.setDuration(3000);
         animator.start();
     }
