@@ -24,13 +24,13 @@ class ProgressAct : AppCompatActivity() {
 
     private fun initClick() {
         btn_01.setOnClickListener {
-            progress_arc.onClick(50f)
+            progress_arc.setArc(50f)
         }
         btn_02.setOnClickListener {
 
         }
         btn_03.setOnClickListener {
-
+            progress_arc.resetArc()
         }
         btn_04.setOnClickListener {
 

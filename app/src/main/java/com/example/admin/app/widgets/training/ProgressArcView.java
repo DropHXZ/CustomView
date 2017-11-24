@@ -1,7 +1,6 @@
 package com.example.admin.app.widgets.training;
 
 import android.animation.ObjectAnimator;
-import android.animation.TimeInterpolator;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -10,9 +9,6 @@ import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
-import android.view.animation.AccelerateDecelerateInterpolator;
-import android.view.animation.AnticipateOvershootInterpolator;
-import android.view.animation.DecelerateInterpolator;
 import android.view.animation.LinearInterpolator;
 
 /**
@@ -26,6 +22,7 @@ public class ProgressArcView extends View {
     Paint cPaint = new Paint();
     ObjectAnimator animator;
     float raseup = 1;
+    private float currentARC = 150;
 
     public ProgressArcView(Context context) {
         this(context,null);
@@ -64,10 +61,25 @@ public class ProgressArcView extends View {
         super.onDetachedFromWindow();
     }
 
-    public void onClick(float arc){
-        animator = ObjectAnimator.ofFloat(this,"raseup",150,arc*240/100);
+    public void setArc(float arc){
+        if (animator == null) {
+            animator = ObjectAnimator.ofFloat(this,"raseup",currentARC,arc*240/100);
+        }
 //        animator.setRepeatCount(ValueAnimator.INFINITE);
 //        animator.setRepeatMode(ValueAnimator.RESTART);
+        animator.setInterpolator(new LinearInterpolator());
+        animator.setDuration(3000);
+        animator.start();
+    }
+
+    /**
+     * 重置，回复初始状态
+     */
+    public void resetArc(){
+        currentARC = 150;
+        if (animator == null) {
+            animator = ObjectAnimator.ofFloat(this,"raseup",currentARC,1*240/100);
+        }
         animator.setInterpolator(new LinearInterpolator());
         animator.setDuration(3000);
         animator.start();
@@ -84,8 +96,10 @@ public class ProgressArcView extends View {
         super.onDraw(canvas);
 
         canvas.translate(getWidth()/2-100,getHeight()/2);
+        //描绘背景颜色
         canvas.drawArc(0,0,220,220,150,240,false,mPaint);
-        canvas.drawArc(0,0,220,220,150,raseup,false,cPaint);
+        //绘制进度弧形
+        canvas.drawArc(0,0,220,220,currentARC,raseup,false,cPaint);
         Log.i("custom","raseup============="+raseup);
     }
 }
