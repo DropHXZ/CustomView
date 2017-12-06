@@ -22,11 +22,11 @@ public class MatrixView extends View {
     private Bitmap bitmap = null;
 
     public MatrixView(Context context) {
-        this(context,null);
+        this(context, null);
     }
 
     public MatrixView(Context context, @Nullable AttributeSet attrs) {
-        this(context, attrs,0);
+        this(context, attrs, 0);
     }
 
     public MatrixView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
@@ -44,15 +44,18 @@ public class MatrixView extends View {
         int bitmapWidth = bitmap.getWidth();
         int bitmapHeight = bitmap.getHeight();
 
-        float src[] = {bitmapWidth / 2, bitmapHeight / 2, bitmapWidth, 0};
-        float dst[] = {bitmapWidth / 2, bitmapHeight / 2, bitmapWidth / 2 + bitmapHeight / 2, bitmapHeight / 2 + bitmapWidth / 2};
+//        float src[] = {bitmapWidth / 2, bitmapHeight / 2, bitmapWidth, 0};
+        float src[] = {0, 0, 0, bitmapHeight, bitmapWidth, bitmapHeight, bitmapWidth, 0};
+//        float dst[] = {bitmapWidth / 2, bitmapHeight / 2, bitmapWidth / 2 + bitmapHeight / 2, bitmapHeight / 2 + bitmapWidth / 2};
+        float dst[] = {50, 0, 0, bitmapHeight / 2, bitmapWidth / 2, bitmapHeight / 2, bitmapWidth - 50, 0};
 
         canvas.save();
         Matrix matrix = new Matrix();
 //        matrix.setRotate(45,bitmapWidth/2,bitmapHeight/2);
-        matrix.setPolyToPoly(src,0,dst,0,2);
+        //这个方法主要是利用确定矩形4个顶点，根据4个顶点坐标的变化来对bitmap进行变换
+        matrix.setPolyToPoly(src, 0, dst, 0, 4);
         canvas.concat(matrix);
-        canvas.drawBitmap(bitmap,0,0,paint);
+        canvas.drawBitmap(bitmap, 0, 50, paint);
         canvas.restore();
     }
 }

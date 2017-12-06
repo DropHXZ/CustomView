@@ -25,7 +25,15 @@ class MainActivity : AppCompatActivity() {
             startActivity(inn)
         }
         btn_03.setOnClickListener {
-            val inn = Intent(this,TranslationAct::class.java)
+            val inn = Intent(this, TranslationAct::class.java)
+            startActivity(inn)
+        }
+        btn_04.setOnClickListener {
+            val inn = Intent(this, MapAnimationAct::class.java)
+            startActivity(inn)
+        }
+        btn_05.setOnClickListener {
+            val inn = Intent(this, MapAnimationAct2::class.java)
             startActivity(inn)
         }
 
