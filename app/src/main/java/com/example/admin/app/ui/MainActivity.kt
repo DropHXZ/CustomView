@@ -36,6 +36,9 @@ class MainActivity : AppCompatActivity() {
             val inn = Intent(this, MapAnimationAct2::class.java)
             startActivity(inn)
         }
-
+        btn_06.setOnClickListener {
+            val inn = Intent(this, H5Activity::class.java)
+            startActivity(inn)
+        }
     }
 }

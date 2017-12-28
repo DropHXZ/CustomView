@@ -1,5 +1,9 @@
 package com.example.admin.app.widgets;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
@@ -33,6 +37,10 @@ public class FlipBoardLogoView extends View {
     private Bitmap bitmap;
     private Camera camera;
 
+    private ObjectAnimator animator1;
+    private ObjectAnimator animator2;
+    private ObjectAnimator animator3;
+
     public FlipBoardLogoView(Context context) {
         this(context, null);
     }
@@ -46,6 +54,30 @@ public class FlipBoardLogoView extends View {
         bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.google_map);
         paint = new Paint(Paint.ANTI_ALIAS_FLAG);
         camera = new Camera();
+        initAnimation();
+    }
+
+    private void initAnimation() {
+        animator1 = ObjectAnimator.ofFloat(this, "rightDegreeY", 0, -45);
+        animator1.setDuration(1000);
+        animator1.setStartDelay(500);
+        animator2 = ObjectAnimator.ofFloat(this, "degreeZ", 0, 270);
+        animator2.setDuration(800);
+        animator2.setStartDelay(500);
+        animator3 = ObjectAnimator.ofFloat(this, "leftDegreeY", 0, 45);
+        animator3.setDuration(1000);
+        animator3.setStartDelay(500);
+        final AnimatorSet set = new AnimatorSet();
+        set.playSequentially(animator1, animator2,animator3);
+        set.start();
+
+        set.addListener(new AnimatorListenerAdapter() {
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                super.onAnimationEnd(animation);
+                //动画结束后
+            }
+        });
     }
 
     @Override
@@ -86,19 +118,19 @@ public class FlipBoardLogoView extends View {
 
     }
 
-    @Keep
+    @SuppressWarnings("unused")
     public void setRightDegreeY(float degreeY) {
         this.rightDegreeY = degreeY;
         invalidate();
     }
 
-    @Keep
+    @SuppressWarnings("unused")
     public void setDegreeZ(float degreeZ) {
         this.degreeZ = degreeZ;
         invalidate();
     }
 
-    @Keep
+    @SuppressWarnings("unused")
     public void setLeftDegreeY(float degreeY) {
         this.leftDegreeY = degreeY;
         invalidate();
