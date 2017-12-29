@@ -49,5 +49,11 @@
         android:layout_height="wrap_content"
         android:text="map6"
         app:layout_constraintLeft_toRightOf="@+id/btn_05" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_07"
+        app:layout_constraintLeft_toRightOf="@+id/btn_06"
+        android:text="购物车动画"/>
 
 </android.support.constraint.ConstraintLayout>

@@ -67,7 +67,7 @@ public class FlipBoardLogoView extends View {
         animator3 = ObjectAnimator.ofFloat(this, "leftDegreeY", 0, 45);
         animator3.setDuration(1000);
         animator3.setStartDelay(500);
-        final AnimatorSet set = new AnimatorSet();
+        AnimatorSet set = new AnimatorSet();
         set.playSequentially(animator1, animator2,animator3);
         set.start();
 
