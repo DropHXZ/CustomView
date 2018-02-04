@@ -143,7 +143,7 @@ public class PanelView extends View {
         if(percent == 1){
             p.setColor(mArcColor);
         }
-        canvas.drawArc(secondRectF,180+fill+empty,10,false,p);
+//        canvas.drawArc(secondRectF,180+fill+empty,10,false,p);
 
         p.setColor(mArcColor);
 
