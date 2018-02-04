@@ -37,7 +37,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(inn)
         }
         btn_06.setOnClickListener {
-            val inn = Intent(this, H5Activity::class.java)
+            val inn = Intent(this, PanelActivity::class.java)
             startActivity(inn)
         }
     }

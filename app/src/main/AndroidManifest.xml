@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.admin.app">
-    <uses-permission android:name="android.permission.CAMERA"/>
-    <uses-permission android:name="android.media.action.IMAGE_CAPTURE"/>
-    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.media.action.IMAGE_CAPTURE" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -36,7 +37,7 @@
         <activity
             android:name=".ui.MapAnimationAct2"
             android:screenOrientation="portrait" />
-        <activity android:name=".ui.H5Activity"></activity>
+        <activity android:name=".ui.PanelActivity"></activity>
     </application>
 
 </manifest>
