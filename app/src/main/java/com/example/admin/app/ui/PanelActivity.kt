@@ -14,6 +14,6 @@ class PanelActivity : AppCompatActivity() {
     }
 
     private fun init() {
-        panelView.setPercent(100)
+        panelView.setPercent(90)
     }
 }
